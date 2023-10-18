@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food</title>
+  <link rel="shortcut icon" type="image" href="./image/logo.png">
+  <!-- icon font cdnjs  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- bootstrap links -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- bootstrap links -->
+  <!-- fonts links -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <!-- fonts links -->
+  <style>
+    ::-webkit-scrollbar {
+      width: 0px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: transparent;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      --sal: #E9967A;
+    }
+
+    .home-section {
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(180deg, white 68%, var(--sal)32%);
+    }
+
+    /* navbar */
+    #logo {
+      font-size: 30px;
+      margin-left: 30px;
+      color: black;
+      font-weight: bold;
+      text-shadow: 1px 1px 1px black;
+    }
+
+    #logo img {
+      margin-bottom: 20px;
+    }
+
+    #logo span {
+      color: var(--sal);
+    }
+
+    .nav-item {
+      margin-left: 30px;
+    }
+
+    .nav-item .nav-link {
+      color: black;
+      font-weight: bold;
+      transition: 0.5s ease;
+    }
+
+    #first-child {
+      color: black;
+      font-weight: bold;
+      transition: 0.5s ease;
+      /* text-shadow: 1px 1px 1px var(--sal); */
+    }
+
+    #first-child:hover {
+      color: var(--sal);
+      text-shadow: 1px 1px 1px black;
+    }
+
+    .nav-item .nav-link:hover {
+      color: var(--sal);
+      text-shadow: 1px 1px 1px black;
+    }
+
+    .icons {
+      margin-right: 30px;
+    }
+
+    .icons i {
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .icons span {
+      background: var(--sal);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      left: 50%;
+      top: -2px;
+      left: 96%;
+      padding: 2px 10px;
+
+    }
+
+    .icons i:hover {
+      color: rgba(20, 18, 18, 5);
+
+    }
+
+    @media screen and (max-width:982px) {
+      .icons {
+        margin-left: 25px;
+
+      }
+    }
+
+    @media (max-width: 768px) {
+      .icons {
+        flex-direction: column;
+      }
+
+      /* .icons .quantity {
+        margin-top: -2px;
+        order: -1;
+      } */
+    }
+
+
+    /* navbar */
+
+    /* home content */
+    .home {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 0;
+      font-family: 'Roboto Slab', serif;
+    }
+
+    .home .img {
+      flex: 1 1 300px;
+    }
+
+    .home .img img {
+      width: 80%;
+      height: 600px;
+      border-radius: 50%;
+      animation: c 5s linear infinite;
+
+    }
+
+    .custom-button {
+      background-color: rgba(255, 255, 255, 0);
+      border: none;
+      padding: 0;
+    }
+
+    .custom-button i {
+      font-size: 24px;
+      color: var(--sal);
+    }
+
+    .btnCart {
+      background-color: rgba(255, 255, 255, 0);
+      border: none;
+      padding: 10px;
+    }
+
+    .btnCart i {
+      font-size: 24px;
+      color: var(--sal);
+    }
+
+    .custom-button:hover {
+      background-color: rgba(white 0.1);
+      /* Warna latar belakang saat tombol dihover */
+    }
+
+    .card-signin {
+      padding: 48px 24px 48px 24px;
+      border-radius: 10px;
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+      max-width: 400px;
+      background-color: #eeeeee;
+      opacity: 1;
+      backdrop-filter: blur(50px);
+    }
+
+    .card-signin-title {
+      color: #000032;
+      /* work Sans/25px medium */
+      font-family: "Work Sans", sans-serif;
+      font-size: 25px;
+      font-weight: 500;
+      line-height: normal;
+      margin-bottom: 41px;
+    }
+
+    .card-signin-input {
+      border-radius: 8px;
+      border: 1.5px solid #000032;
+      background-color: #eeeeee;
+      height: 45px;
+    }
+
+    .card-signin-button {
+      width: 100%;
+      background-color: black;
+      opacity: 0.4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      height: 51px;
+    }
+
+    .card-signin-button-signup {
+      width: 100%;
+      background-color: black;
+      opacity: 0.4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      height: 51px;
+    }
+
+    .card-signin-button:hover {
+      color: black;
+      opacity: 1;
+      background-color: var(--sal);
+    }
+
+    .card-signin-button-signup:hover {
+      opacity: 1;
+      background-color: var(--sal);
+    }
+
+    .no-underline {
+      text-decoration: none;
+    }
+
+    .card-signin-button-social-media {
+      width: 100%;
+      /* background-color: #000032; */
+      opacity: 0.4;
+      color: black;
+      border: none;
+      border-radius: 8px;
+      height: 51px;
+    }
+
+    .card-signin-button-social-media:hover {
+      color: salmon;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes c {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(30px);
+      }
+    }
+
+    .home .content {
+      flex: 1 1 400px;
+      margin-top: 30px;
+    }
+
+    .content h1 {
+      margin-left: 42px;
+      font-size: 65px;
+      font-weight: bold;
+      text-shadow: -1px 0px 0px black;
+    }
+
+    .content h1 span {
+      color: var(--sal);
+      text-shadow: 1px 1px 1px black;
+      font-size: 100px;
+      font-weight: bold;
+    }
+
+    .content p {
+      margin-left: 42px;
+    }
+
+    #btn {
+      margin-left: 42px;
+    }
+
+    #btn button {
+      width: 150px;
+      height: 32px;
+      letter-spacing: 3px;
+      background-color: black;
+      color: white;
+      border-radius: 5px;
+      transition: 0.5s ease;
+      cursor: pointer;
+    }
+
+    #btn button:hover {
+      background-color: white;
+      color: black;
+      border: none;
+    }
+
+    #btn span {
+      margin-left: 10px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    @media screen and (max-width:1200px) {
+      .home-section {
+        height: 90vh;
+      }
+    }
+
+    @media screen and (max-width:799px) {
+      .home-section {
+        height: 140vh;
+      }
+    }
+
+    @media screen and (max-width:550px) {
+      .home-section {
+        height: 110vh;
+      }
+    }
+
+    @media screen and (max-width:420px) {
+      .content h1 span {
+        font-size: 80px;
+      }
+    }
+
+    @media screen and (max-width:320px) {
+      .content h1 {
+        font-size: 50px;
+      }
+
+      .content h1 span {
+        font-size: 60px;
+      }
+    }
+
+    /* home content */
+
+    /* Cart Alert Shopping*/
+    .kart {
+      position: fixed;
+      top: 0;
+      left: 100%;
+      width: 500px;
+      background-color: black;
+      height: 100vh;
+      transition: 0.5s;
+    }
+
+    .active .kart {
+      left: calc(100% - 500px);
+    }
+
+    .active .container {
+      transform: translateX(-200px);
+    }
+
+    .kart h1 {
+      color: var(--sal);
+      font-weight: 100;
+      margin: 0;
+      padding: 0 20px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+    }
+
+    .kart .checkOut {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .kart .checkOut div {
+      background-color: white;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .kart .checkOut div:nth-child(2) {
+      background-color: black;
+      color: #fff;
+    }
+
+    .listCard li {
+      display: grid;
+      grid-template-columns: 100px repeat(3, 1fr);
+      color: #fff;
+      row-gap: 10px;
+    }
+
+    .listCard li div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .listCard li img {
+      width: 90%;
+    }
+
+    .listCard li button {
+      background-color: black;
+      border: none;
+    }
+
+    .listCard .count {
+      margin: 0 10px;
+    }
+
+    /* Cart Alert Shopping  */
+
+
+    /* top icons */
+    #top-icons {
+      margin-top: 50px;
+    }
+
+    #top-icons h1 {
+      text-align: center;
+      font-weight: bold;
+      font-family: 'Dancing Script', cursive;
+      border-bottom: 2px solid var(--sal);
+      text-shadow: 1px 1px 1px black;
+    }
+
+    #top-icons i img {
+      width: 100px;
+    }
+
+    #top-icons h3 {
+      font-size: 18px;
+      font-family: 'Roboto Slab', serif;
+      margin-left: 20px;
+    }
+
+    /* top icons */
+
+    /* cards */
+    #cards {
+      margin-top: 100px;
+      font-family: 'Roboto Slab', serif;
+    }
+
+    #cards .card h3 {
+      color: black;
+      font-weight: bold;
+    }
+
+    #cards .card p {
+      color: black;
+      font-weight: bold;
+    }
+
+    #rn {
+      width: 150px;
+      height: 32px;
+      border: none;
+      background: transparent;
+      color: black;
+      border: 2px solid;
+      border-radius: 10%;
+      font-weight: bold;
+      text-shadow: 1px 1px 1px black;
+      transition: 0.5s ease;
+      cursor: pointer;
+    }
+
+    #rn:hover {
+      background-color: var(--sal);
+      color: white;
+    }
+
+    /* cards */
+
+    /* Food */
+    #food {
+      margin-top: 100px;
+      font-family: 'Roboto Slab', serif;
+    }
+
+    #food h1 {
+      text-align: center;
+      font-weight: bold;
+      font-family: 'Dancing Script', cursive;
+      border-bottom: 2px solid var(--sal);
+      text-shadow: 1px 1px 1px black;
+    }
+
+    #food .card {
+      transition: 0.5s ease;
+      cursor: pointer;
+    }
+
+    #food .card:hover {
+      background-color: var(--sal);
+    }
+
+    #food .card h3 {
+      font-weight: bold;
+      text-shadow: 0px 0px 1px black;
+    }
+
+    #food .card h5 span {
+      color: var(--sal);
+      float: right;
+    }
+
+    /* food */
+
+
+    /* top cards */
+    #topcards {
+      margin-top: 50px;
+    }
+
+    #topcards .card {
+      background-color: var(--sal);
+      transition: 0.5s ease;
+      cursor: pointer;
+    }
+
+    #topcards .card:hover {
+      transform: translateY(-10px);
+    }
+
+    /* top cards */
+
+
+    /* about */
+    #about {
+      margin-top: 100px;
+    }
+
+    #about h1 {
+      text-align: center;
+      font-weight: bold;
+      font-family: cursive;
+      border-bottom: 2px solid var(--sal);
+      text-shadow: 1px 1px 1px black;
+    }
+
+    #about h2 {
+      font-weight: bold;
+      font-family: cursive;
+      border-bottom: 2px solid var(--sal);
+      text-shadow: 1px 1px 1px black;
+    }
+
+    #about p {
+      font-family: 'Roboto Slab', serif;
+    }
+
+    #readmorebtn button {
+      width: 200px;
+      height: 32px;
+      background: transparent;
+      border: 2px solid var(--sal);
+      border-radius: 10%;
+      color: var(--sal);
+      font-weight: bold;
+      letter-spacing: 3px;
+      transition: 0.5s ease;
+    }
+
+    #about .card {
+      background-color: var(--sal);
+    }
+
+    #readmorebtn button:hover {
+      background-color: var(--sal);
+      color: white;
+    }
+
+    /* about */
+
+
+    /* contact */
+    #contact {
+      margin-top: 10px;
+      border: 2px solid var(--sal);
+    }
+
+    #h2 {
+      margin-top: 100px;
+      text-align: center;
+      font-weight: bold;
+      font-family: cursive;
+      border-bottom: 2px solid var(--sal);
+      text-shadow: 1px 1px 1px black;
+    }
+
+    #contact h3 {
+      font-weight: bold;
+      font-family: cursive;
+      border-bottom: 2px solid var(--sal);
+      text-shadow: 1px 1px 1px black;
+    }
+
+    #contact p {
+      font-family: 'Roboto Slab', serif;
+    }
+
+    #contact input {
+      width: 500px;
+      height: 42px;
+      margin-top: 20px;
+      background-color: var(--sal);
+      border: none;
+      border-radius: 5px;
+    }
+
+    #contact ::placeholder {
+      color: black;
+      font-family: 'Roboto Slab', serif;
+      padding-left: 10px;
+      font-weight: bold;
+    }
+
+    #btnmessage {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 200px;
+      height: 32px;
+      background: transparent;
+      border: 2px solid var(--sal);
+      border-radius: 10%;
+      letter-spacing: 3px;
+      font-weight: bold;
+      transition: 0.5s ease;
+    }
+
+    #btnmessage:hover {
+      background-color: var(--sal);
+      color: white;
+    }
+
+    #contact i {
+      color: var(--sal);
+      font-size: 20px;
+      margin-top: 30px;
+    }
+
+    #contact i span {
+      font-family: 'Dancing Script', cursive;
+    }
+
+    @media screen and (max-width:1200px) {
+      #contact input {
+        width: 350px;
+      }
+    }
+
+    @media screen and (max-width:385px) {
+      #contact input {
+        width: 250px;
+      }
+    }
+
+    /* contact */
+
+
+    /* footer */
+    #footer {
+      padding: 0 0 30px 0;
+      font-family: 'Roboto Slab', serif;
+      color: white;
+      font-size: 14px;
+      background: var(--sal);
+      font-weight: bold;
+      text-shadow: 0px 0px 1px black;
+    }
+
+    #footer .footer-top {
+      padding: 60px 030px;
+      border: 2px solid var(--sal);
+      font-weight: bold;
+      text-shadow: 1px 1px 1px black;
+      background: linear-gradient(200deg, rgb(134, 101, 101) 50%, var(--sal) 20%);
+      color: white;
+    }
+
+    #logo2 {
+      font-size: 30px;
+      color: white;
+      font-weight: bold;
+      text-shadow: 1px 1px 1px black;
+    }
+
+    #logo2 img {
+      margin-bottom: 10px;
+    }
+
+    #footer .footer-top .footer-contact h4 {
+      font-size: 22px;
+      margin: 0 0 300px 0;
+      padding: 2px 0 2px 0;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    #footer .footer-top .footer-contact p {
+      font-size: 16px;
+      margin: 0;
+      color: white;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    #footer .footer-top h4 {
+      font-size: 16px;
+      font-weight: bold;
+      position: relative;
+      padding-bottom: 700;
+    }
+
+    #footer .footer-top .footer-links {
+      margin-bottom: 30px;
+    }
+
+    #footer .footer-top .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #footer .footer-top .footer-links ul li {
+      padding-right: 10px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    #footer .footer-top .footer-links ul li a {
+      text-decoration: none;
+      color: white;
+      line-height: 2;
+      transition: 0.5s ease;
+    }
+
+    #footer .footer-top .footer-links ul li a:hover {
+      color: var(--sal);
+    }
+
+    #footer .footer-top .socail-links a {
+      font-size: 18px;
+      display: inline-block;
+      color: white;
+      line-height: 1;
+      padding-right: 4px;
+      text-align: center;
+      width: 36px;
+      height: 36px;
+      transition: 0.5s ease;
+      cursor: pointer;
+    }
+
+    #footer .footer-top .socail-links a:hover {
+      color: black;
+    }
+
+    #footer .copyright {
+      text-align: center;
+      float: left;
+    }
+
+    #footer .credits {
+      float: right;
+      text-align: center;
+    }
+
+    /* footer */
+
+    .arrow {
+      position: fixed;
+      height: 50px;
+      bottom: 50px;
+      right: 50px;
+      text-decoration: none;
+      align-items: center;
+      line-height: 50px;
+    }
+
+    .arrow i {
+      color: black;
+      font-size: 30px;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <!-- home section -->
+  <div class="home-section" id="home">
+    <nav class="navbar navbar-expand-lg" id="navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" id="logo"><img src="./images/logo.png" alt=""
+            width="30px">Dee<span>Food</span>.</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span><i class="fa-solid fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#home" id="first-child">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#food">Food</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Other
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:  var(--sal);">
+                <li><a class="dropdown-item" href="#food">Food</a></li>
+                <li><a class="dropdown-item" href="#drink">Drink</a></li>
+                <li><a class="dropdown-item" href="#snack">Snacks</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact Us</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <div class="icons flex-column align-items-center ">
+              <button type="button" class="custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="fa-regular fa-user"></i>
+              </button>
+              <button type="button" class="btnCart position-relative">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span
+                  class="quantity position-absolute top-0 start-100 translate-middle badge rounded-pill --bs-primary-text-emphasis">0
+                </span>
+              </button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </nav>
+
+
+
+    <!-- home content start -->
+    <section class="home">
+      <div class="content">
+        <h1>Super Delicious
+          <br> <span>DeeFood</span>
+        </h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, iste!</p>
+        <div id="btn"><button>Order Now</button> <span>$50</span></div>
+      </div>
+      <div class="img">
+        <img src="./images/b2.png" alt="">
+      </div>
+    </section>
+    <!-- home content -->
+
+
+
+    <!-- Modal login -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Sign In</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="./home-signin.html">
+              <div class="mb-3">
+                <input type="email" class="form-control card-signin-input mb-4 ps-4" id="exampleInputEmail1"
+                  aria-describedby="emailHelp" placeholder="Enter phone number or email address" required />
+              </div>
+
+              <button href="./home-signin.html" type="submit" class="btn card-signin-button mb-4">
+                Sign in
+              </button>
+
+              <button type="button" class="btn btn-link card-signin-button-signup no-underline">
+                Sign up
+              </button>
+            </form>
+            <div class="text-center fw-medium mt-3" style="font-size: 20px; color: black; margin-bottom: 24px">
+              or
+            </div>
+            <div class="d-flex flex-column gap-3">
+              <button link="http://gmail.com" type="button"
+                class=" btn btn-link card-signin-button-social-media no-underline">
+                <i class="fab fa-google"></i> login with Google
+              </button>
+              <button href="http://Facebook.com" type="button"
+                class="btn btn-link card-signin-button-social-media no-underline">
+                <i class="fab fa-facebook"></i> Login with Facebook
+              </button>
+              <button type="button" class="btn btn-link card-signin-button-social-media no-underline">
+                <i class="fab fa-apple text-dark"></i>
+                Continue with Apple
+              </button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- home section -->
+
+  <!-- Card Alert  -->
+  <div class="kart">
+    <h1>Card</h1>
+    <ul class="listCard">
+    </ul>
+    <div class="checkOut">
+      <div class="total">0</div>
+      <div class="closeShopping">Close</div>
+    </div>
+  </div>
+  <!-- Card Alert  -->
+
+  <!-- top icons -->
+  <div class="container" id="top-icons">
+    <h1>Recommendation</h1>
+    <div class="row">
+      <div class="col-md-3 py-3 py-md-0">
+        <i><img src="./images/cake.jpg" alt=""></i>
+        <h3>Cake 50% off</h3>
+      </div>
+      <div class="col-md-3 py-3 py-md-0">
+        <i><img src="./images/rekom2.png" alt=""></i>
+        <h3>Free Delivery</h3>
+      </div>
+      <div class="col-md-3 py-3 py-md-0">
+        <i><img src="./images/rekom3.png" alt=""></i>
+        <h3>Take away free fries</h3>
+      </div>
+      <div class="col-md-3 py-3 py-md-0">
+        <i><img src="./images/rekom4.png" alt=""></i>
+        <h3>Buy food 2 get 1</h3>
+      </div>
+    </div>
+  </div>
+  <!-- top icons -->
+
+
+  <!-- cards -->
+  <div class="daftar">
+    <div class="daftar">
+      <div class="container" id="cards">
+        <div class="row">
+          <div class="col-md-6 py-3 py-md-0">
+            <div class="card">
+              <img src="./images/b4.jpg" alt="">
+              <div class="card-img-overlay">
+                <h3>Grilled Chicken</h3>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <button id="rn">Order Now</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 py-3 py-md-0">
+            <div class="card">
+              <img src="./images/b5.jpg" alt="">
+              <div class="card-img-overlay">
+                <h3>Full Vegetarian</h3>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <button id="rn">Order Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top: 30px;">
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card">
+              <img src="./images/p2.png" alt="">
+              <div class="card-img-overlay">
+                <h3>Vegetarian For Diet</h3>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <button id="rn">Order Now</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card">
+              <img src="./images/p3.png" alt="">
+              <div class="card-img-overlay">
+                <h3>Fried Chicken</h3>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <button id="rn">Order Now</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card">
+              <img src="./images/p4.png" alt="">
+              <div class="card-img-overlay">
+                <h3>Yogurt</h3>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <button id="rn">Order Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- cards -->
+
+    <!-- Food -->
+    <div class="container" id="food">
+      <h1>Delicious Food</h1>
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-md-3 py-3 py-md-0">
+          <div class="card">
+            <img src="./images/b1.jpg" alt="">
+            <div class="card-body">
+              <h3>Tasty Food</h3>
+              <p>Lorem ipsum dolor sit amet.</p>
+              <h5>$10.50 <span><button type="button" class="btn btn-light position-relative"><i
+                      class="fa-solid fa-cart-shopping"></i></button></span></h5>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 py-3 py-md-0">
+          <div class="card">
+            <img src="./images/b9-.jpg" alt="">
+            <div class="card-body">
+              <h3>Burger</h3>
+              <p>Lorem ipsum dolor sit amet.</p>
+              <h5>$5.60 <span><button type="button" class="btn btn-light position-relative"><i
+                      class="fa-solid fa-cart-shopping"></i></button></span></h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 py-3 py-md-0">
+          <div class="card">
+            <img src="./images/b3.jpg" alt="">
+            <div class="card-body">
+              <h3>Fast Food</h3>
+              <p>Lorem ipsum dolor sit amet.</p>
+              <h5>$3.20 <span><button type="button" class="btn btn-light position-relative"><i
+                      class="fa-solid fa-cart-shopping"></i></button></span></h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 py-3 py-md-0">
+          <div class="card">
+            <img src="./images/b4.jpg" alt="">
+            <div class="card-body">
+              <h3>Cake</h3>
+              <p>Lorem ipsum dolor sit amet.</p>
+              <h5>$1.50 <span><button type="button" class="btn btn-light position-relative"><i
+                      class="fa-solid fa-cart-shopping"></i></button></span></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-md-3 py-3 py-md-0">
+          <div class="card">
+            <img src="./images/b5.jpg" alt="">
+            <div class="card-body">
+              <h3>Vegetarian Food</h3>
+              <p>Lorem ipsum dolor sit amet.</p>
+              <h5>$6.50 <span><button type="button" class="btn btn-light position-relative"><i
+                      class="fa-solid fa-cart-shopping"></i></button></span></h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 py-3 py-md-0">
+          <div class="card">
+            <img src="./images/b6.jpg" alt="">
+            <div class="card-body">
+              <h3>Mie</h3>
+              <p>Lorem ipsum dolor sit amet.</p>
+              <h5>$2.30 <span><button type="button" class="btn btn-light position-relative"><i
+                      class="fa-solid fa-cart-shopping"></i></button></span></h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 py-3 py-md-0">
+          <div class="card">
+            <img src="./images/b7.jpg" alt="">
+            <div class="card-body">
+              <h3>Vegetarian Food</h3>
+              <p>Lorem ipsum dolor sit amet.</p>
+              <h5>$1.20 <span><button type="button" class="btn btn-light position-relative"><i
+                      class="fa-solid fa-cart-shopping"></i></button></span></h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 py-3 py-md-0">
+          <div class="card">
+            <img src="./images/b8.jpg" alt="">
+            <div class="card-body">
+              <h3>Sausage</h3>
+              <p>Lorem ipsum dolor sit amet.</p>
+              <h5>$10.50 <span><button type="button" class="btn btn-light position-relative"><i
+                      class="fa-solid fa-cart-shopping"></i></button></span></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Food -->
+
+
+  <!-- banner -->
+  <div class="banner">
+    <!-- Carousel -->
+    <div class="container mt-5 pt-">
+      <div id="carouselExampleCaptions" class="carousel" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner rounded-5">
+          <div class="carousel-item active">
+            <img src="https://www.kredivo.id/barcode/images/banner-mcd-web.jpg" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://images.tokopedia.net/img/cache/1208/NsjrJu/2023/10/10/c9b3ae29-6b54-4942-b684-e88f81b25132.jpg.webp?ect=4g"
+              class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://images.tokopedia.net/img/cache/1208/NsjrJu/2023/10/17/d04c7a03-df57-4e84-9c46-87ecbfce3d72.jpg.webp?ect=4g"
+              class="
+                d-block w-100" alt="..." />
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev"></button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next"></button>
+      </div>
+
+    </div>
+  </div>
+  <!-- banner -->
+
+
+
+  <!-- top cards -->
+  <div class="container" id="topcards">
+    <div class="row">
+      <div class="col-md-4 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/b2.png" alt="">
+        </div>
+      </div>
+      <div class="col-md-4 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/topcards2.png" alt="">
+        </div>
+      </div>
+      <div class="col-md-4 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/topcards3.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- top cards -->
+
+
+  <!-- Food -->
+
+  <div class="container" id="topcards">
+    <div class="row" style="margin-top: 30px;">
+      <div class="col-md-3 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/topcards2.png" alt="">
+          <div class="card-body">
+            <h3>Chicken Food</h3>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <h5>$10.50 <span><button type="button" class="btn btn-light position-relative"><i
+                    class="fa-solid fa-cart-shopping"></i></button></span></h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/p2.png" alt="">
+          <div class="card-body">
+            <h3>Vegetarian Food</h3>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <h5>$10.50 <span><button type="button" class="btn btn-light position-relative"><i
+                    class="fa-solid fa-cart-shopping"></i></button></span></h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/p3.png" alt="">
+          <div class="card-body">
+            <h3>Breakfast</h3>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <h5>$10.50 <span><button type="button" class="btn btn-light position-relative"><i
+                    class="fa-solid fa-cart-shopping"></i></button></span></h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/p4.png" alt="">
+          <div class="card-body">
+            <h3>Yogurt</h3>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <h5>$10.50 <span><button type="button" class="btn btn-light position-relative"><i
+                    class="fa-solid fa-cart-shopping"></i></button></span></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Food -->
+
+
+
+  <!-- about -->
+  <div class="container" id="about">
+    <h1>ABOUT</h1>
+    <div class="row">
+      <div class="col-md-6 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/about.jpg" alt="">
+        </div>
+      </div>
+      <div class="col-md-6 py-3 py-md-0">
+        <h2>Vegetarian Food</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam accusamus exercitationem ut. Non
+          assumenda
+          nihil tempore minima consequatur corrupti numquam quia dolorum laborum praesentium vero commodi ex
+          velit
+          expedita, omnis adipisci? Exercitationem consequatur ducimus praesentium dolores rerum voluptatibus,
+          nam
+          illo
+          quas modi deleniti iusto laboriosam adipisci enim excepturi, cupiditate quidem neque tempora sunt
+          animi
+          natus
+          aliquid. Fugiat eligendi molestiae magnam vero dicta est praesentium unde ducimus eveniet commodi
+          alias,
+          pariatur quis quod saepe sed accusamus porro nemo doloribus cumque quos quo nihil! Numquam explicabo
+          odit
+          accusamus laudantium molestiae. Ipsum culpa dolor sequi dolore doloribus aperiam, earum maxime alias
+          voluptates magni.</p>
+        <div id="readmorebtn"><button>Read More...</button></div>
+      </div>
+    </div>
+  </div>
+  <!-- about -->
+
+
+
+  <!-- contact -->
+  <div class="container">
+    <h2 id="h2">CONTACT</h2>
+  </div>
+  <div class="container" id="contact">
+    <div class="row">
+      <div class="col-md-6 py-3 py-md-0">
+        <h3>CONTACT</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas dolorem sit excepturi, nemo
+          reiciendis
+          animi?</p>
+        <input type="text" placeholder="Name"><br>
+        <input type="email" placeholder="Email"><br>
+        <input type="number" placeholder="Phone"><br>
+        <button id="btnmessage">Send</button>
+      </div>
+      <div class="col-md-6 py-3 py-md-0">
+        <h3>INFO</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, odio assumenda nostrum commodi at
+          corporis!
+        </p>
+        <i class="fas fa-phone"> <span>+000000000000000</span></i><br>
+        <i class="fa-solid fa-envelope"> <span>example@gmail.com</span></i><br>
+        <i class="fa-solid fa-location-dot"> <span>DeeFood</span></i><br>
+      </div>
+    </div>
+  </div>
+
+  <!-- contact -->
+
+
+
+  <!-- footer -->
+  <footer id="footer" style="margin-top: 50px;">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <a class="navbar-brand" href="#" id="logo2"><img src="./images/transparanlogo.png" alt=""
+                width="30px">Food</a>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, libero.</p><br>
+            <p>
+              Dewi Kuswanti<br><br>
+            </p>
+            <strong><i class="fa-solid fa-phone"></i> Phone: <strong>082134240764</strong></strong><br>
+            <strong><i class="fa-solid fa-envelope"></i> Email:
+              <strong>dewikuswanti.dk@gmail.com</strong></strong>
+          </div>
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Privacy policay</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, aperiam.</p>
+            <ul>
+              <li><a href="#">Food</a></li>
+              <li><a href="#">Drink</a></li>
+              <li><a href="#">Snacks</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Socail Links</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis, minus.</p>
+            <div class="socail-links mt-3">
+              <a href="#"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#"><i class="fa-brands fa-facebook"></i></a>
+              <a href="#"><i class="fa-brands fa-google-plus"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    <div class="container py-4">
+      <div class="copyright">
+        &copy; Copyright <strong>DeeFood</strong>.All Rights reserved
+      </div>
+      <div class="credits">
+        Designed By <a href="#">Dewi Kuswanti</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- footer -->
+
+  <a href="#" class="arrow"><i class="fa-solid fa-arrow-up"></i></a>
+  <script>
+    let openShopping = document.querySelector('.btnCart');
+    let closeShopping = document.querySelector('.closeShopping');
+    let daftar = document.querySelector('.daftar');
+    let listCard = document.querySelector('.listCard');
+    let body = document.querySelector('body');
+    let total = document.querySelector('.total');
+    let quantity = document.querySelector('.quantity');
+
+    openShopping.addEventListener('click', () => {
+      body.classList.add('active');
+    })
+    closeShopping.addEventListener('click', () => {
+      body.classList.remove('active');
+    })
+
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
